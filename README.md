@@ -32,6 +32,9 @@ VirtualBox(FullScreen):
     -yum install perl
     -yum install gcc
     
+Run: (Insert Guest Additions CD image....)
+Reboot
+    
 **************************************************************************************************************************************************
 
 
