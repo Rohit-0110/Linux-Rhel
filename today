@@ -1,0 +1,169 @@
+sudo apt install net-tool; sudo apt install vim; sudo apt install 
+
+vimrc
+set ts=4 sw=4
+
+
+active directory
+sudo apt-get update
+sudo apt samba
+sudo apt-get install krb5-user
+
+
+sudo yum install samba samba-client samba-common krb5-workstation
+
+
+
+python3.10 - SSL
+sudo apt-get install build-essential libssl-dev zlib1g-dev libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev libffi-dev liblzma-dev
+wget https://www.python.org/ftp/python/3.10.0/Python-3.10.0.tgz
+
+
+
+Stack Overflow - This is a popular Q&A platform where developers can ask and answer technical questions related to Linux and other programming languages.
+
+LinuxQuestions.org - This is a community-driven forum where users can ask questions related to Linux and get answers from other experienced users.
+
+Linux.com - This is a news and information site dedicated to Linux and open source software. It offers a range of tutorials, articles, and resources related to Linux.
+
+Ubuntu forums - If you use Ubuntu, then the Ubuntu forums are an excellent resource for finding Linux fixes and solutions. The forum is divided into categories such as installation, networking, and software.
+
+Arch Linux Wiki - This is a community-driven wiki that offers extensive documentation and guides for Arch Linux users.
+
+Fedora Magazine - This is a publication dedicated to Fedora Linux, which offers a range of tutorials and articles related to Linux and open source software.
+
+LinuxHint - This website offers a range of tutorials and guides for Linux users, covering topics such as system administration, networking, and programming.
+
+Linux Academy - This is a training platform that offers courses on Linux, cloud computing, and other related topics.
+
+GitHub - This is a popular code-sharing platform where developers can find and share code related to Linux and other programming languages. It also offers a range of tools and resources for developers.
+
+
+
+
+Stack Overflow - This is a popular Q&A platform where developers can ask and answer technical questions related to Linux and other programming languages. It's a great resource for finding solutions to common Linux issues.
+
+LinuxQuestions.org - This is a community-driven forum where users can ask questions related to Linux and get answers from other experienced users. It's a great place to ask for help with Linux troubleshooting.
+
+Unix & Linux Stack Exchange - This is another Q&A platform dedicated to Unix and Linux operating systems. It offers a range of questions and answers related to Linux troubleshooting and system administration.
+
+Linux.com - This is a news and information site dedicated to Linux and open source software. It offers a range of tutorials, articles, and resources related to Linux troubleshooting and system administration.
+
+Arch Linux Wiki - This is a community-driven wiki that offers extensive documentation and guides for Arch Linux users. It's a great resource for finding solutions to common Linux issues.
+
+CentOS Wiki - This is a wiki dedicated to CentOS, a popular Linux distribution. It offers a range of documentation and guides related to CentOS troubleshooting and system administration.
+
+Ubuntu Forums - If you use Ubuntu, then the Ubuntu forums are an excellent resource for finding Linux troubleshooting tips and solutions. The forum is divided into categories such as installation, networking, and software.
+
+LinuxHint - This website offers a range of tutorials and guides for Linux users, covering topics such as system administration, networking, and programming. It's a great resource for finding Linux troubleshooting tips and solutions.
+
+
+
+
+To set up a VNC server on Ubuntu 20.04, follow these steps:
+
+Install the necessary packages:
+sql
+Copy code
+sudo apt update
+sudo apt install -y ubuntu-desktop gnome-panel gnome-settings-daemon metacity nautilus gnome-terminal
+sudo apt install -y tightvncserver
+Start the VNC server:
+Copy code
+tightvncserver
+You will be prompted to enter a password for VNC access. Choose a strong password and confirm it.
+
+Stop the VNC server:
+bash
+Copy code
+tightvncserver -kill :1
+Edit the VNC startup file:
+javascript
+Copy code
+nano ~/.vnc/xstartup
+Replace the contents of the file with the following:
+
+bash
+Copy code
+#!/bin/bash
+xrdb $HOME/.Xresources
+startxfce4 &
+Save and exit the file.
+
+Make the VNC startup file executable:
+javascript
+Copy code
+chmod +x ~/.vnc/xstartup
+Restart the VNC server:
+Copy code
+tightvncserver
+Connect to the VNC server from a remote machine using a VNC viewer application. Enter the IP address of the Ubuntu machine and the VNC port number (default is 5901) in the viewer application.
+
+Enter the VNC access password when prompted, and you should be able to access the Ubuntu desktop remotely.
+
+Note: The above instructions assume that you are using the XFCE desktop environment. If you are using a different desktop environment, replace "startxfce4" with the appropriate command for your desktop environment.
+
+
+
+
+Setting up VNC (Virtual Network Computing) on CentOS 7 involves the following steps:
+
+Install GNOME Desktop Environment:
+VNC server requires a graphical desktop environment to be installed on the server. If it's not already installed, you can install it by running the following command:
+
+python
+Copy code
+sudo yum groupinstall "GNOME Desktop"
+Install VNC server:
+You can install the VNC server package, TigerVNC, using the following command:
+
+Copy code
+sudo yum install tigervnc-server
+Configure VNC server:
+Create a new VNC configuration file by copying the default template file using the following command:
+
+bash
+Copy code
+sudo cp /lib/systemd/system/vncserver@.service /etc/systemd/system/vncserver@:1.service
+Next, edit the configuration file by running the following command:
+
+bash
+Copy code
+sudo nano /etc/systemd/system/vncserver@:1.service
+Replace User=username with the username you want to use for VNC.
+
+Add the following lines at the end of the file:
+
+csharp
+Copy code
+[Install]
+WantedBy=multi-user.target
+Save the changes and close the file.
+
+Set up VNC password:
+Set up a VNC password by running the following command:
+
+Copy code
+vncpasswd
+Enter and confirm the VNC password when prompted.
+
+Start VNC server:
+Start the VNC server using the following command:
+
+kotlin
+Copy code
+sudo systemctl start vncserver@:1.service
+Enable VNC server:
+Enable the VNC server to start at boot time by running the following command:
+
+bash
+Copy code
+sudo systemctl enable vncserver@:1.service
+Configure Firewall:
+If you have firewall enabled on your server, you need to allow VNC traffic through the firewall. Run the following command to open the VNC port:
+
+css
+Copy code
+sudo firewall-cmd --permanent --add-service vnc-server
+sudo firewall-cmd --reload
+That's it! You can now connect to your CentOS 7 server using a VNC client by specifying the server IP address and the VNC port (e.g., 192.168.0.100:1).
